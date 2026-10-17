@@ -1,0 +1,32 @@
+{
+  "name": "Організація баз даних: Python і PostgreSQL 18 (лабораторна 4)",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "postCreateCommand": "pip install --user -r requirements.txt && (sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client || echo 'psql не встановлено: використовуйте docker exec або розширення PostgreSQL')",
+  "remoteEnv": {
+    "PGHOST": "postgres",
+    "PGPORT": "5432",
+    "PGUSER": "postgres",
+    "PGPASSWORD": "postgres",
+    "PGDATABASE": "postgres"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "bierner.markdown-mermaid",
+        "ckolkman.vscode-postgres",
+        "mtxr.sqltools"
+      ],
+      "settings": {
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": [
+          "tests"
+        ],
+        "files.encoding": "utf8"
+      }
+    }
+  }
+}
